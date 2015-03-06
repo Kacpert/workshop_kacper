@@ -3,6 +3,8 @@
   = f.error_notification
   .form-inputs
     = f.input :email, required: true, autofocus: true
+    = f.input :firstname, required: true
+    = f.input :lastname, required: true
     = f.input :password, required: true
     = f.input :password_confirmation, required: true
   .form-actions

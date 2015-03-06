@@ -9,13 +9,13 @@
     = javascript_include_tag 'application'
 
   %body
-    %nav.navbar.navbar-default
-      .container-fluid
-        .navbar-header
-          %span.navbar-brand #{AppConfig.workshops_name}
-        %p.navbar-text.navbar-right
-          Links should go here
+
     .container-fluid
       .row
         .col-lg-12
-          = yield
+          =if notice
+            %p.alert-success= notice
+          =if alert 
+            %p.alert-danger= alert 
+    = render 'layouts/top'
+

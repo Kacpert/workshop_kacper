@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><span class="glyphicon glyphicon-indent-left" aria-hidden="true"></span>
+  <%= link_to "Edit profile if wanna", edit_user_registration_path(current_user) %>
+</div>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item"><%= current_user.email %></li>  
+    <li class="list-group-item"><%= current_user.firstname %></li>
+    <li class="list-group-item"><%= current_user.lastname %></li>
+  </ul>
+</div>

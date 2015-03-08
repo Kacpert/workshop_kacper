@@ -1,21 +1,8 @@
-%h1 Listing products
-
-%table
-  %tr
-    %th Title
-    %th Description
-    %th Price
-    %th
-    %th
-    %th
-
-  - products.each do |product|
-    %tr
-      %td= product.title
-      %td= product.description
-      %td= product.price
-      %td= link_to 'Show', category_product_path(product.category, product)
-      %td= link_to 'Edit', edit_category_product_path(product.category, product)
-      %td= link_to 'Destroy', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }
-
+=provide(:title, category.name)
+.col-7.light-font
+  =link_to "Add product", new_category_product_path if user_signed_in?
+  %section.catalog-grid
+    .container
+      .row
+        =render  products
 %br

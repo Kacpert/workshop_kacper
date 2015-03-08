@@ -1,25 +1,21 @@
+=provide(:title, product.title)
 %p#notice= notice
 %p#error= flash[:error]
 
-%p
-  %b Title:
-  = product.title
-%p
-  %b Description:
-  = product.description
+
 %p
   %b Price:
   = product.price
-
 %p
-  %b Category
-  = product.category.name
+  = product.description
+%br
+%br
+-if user_signed_in?
+  .col-md-9.col-md-offset-0.light-font
+    %h4 Reviews
+    = render 'reviews/form'
 
-%h3 Reviews
-= render 'reviews/form'
-
-= render reviews
-
-= link_to 'Edit', edit_category_product_path(category.id, product.id)
-\|
-= link_to 'Back', category_products_path, class: 'btn btn-primary'
+    = render reviews
+-else
+  = link_to 'Back', category_products_path, class: 'btn btn-primary'
+  = render reviews

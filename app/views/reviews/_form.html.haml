@@ -8,7 +8,10 @@
   .form-group
     = f.label :content
     = f.text_area :content, class: 'form-control'
-  .form-group
+  .input-group.input-group-sm
     = f.input :rating, collection: 1..5, class: 'form-control'
+    %br
+    %br
 
   = f.submit 'Save', class: 'btn btn-default'
+  = link_to 'Back', category_products_path, class: 'btn btn-primary'

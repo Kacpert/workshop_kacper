@@ -1,7 +1,4 @@
-%h1 Editing product
+=provide(:title, "Edit " + product.title + " ad")
 
 = render 'form'
 
-= link_to 'Show', category_product_path(category, product)
-\|
-= link_to 'Back', category_path(category)

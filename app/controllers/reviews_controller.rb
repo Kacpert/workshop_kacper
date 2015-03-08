@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
       product.reviews << review
       redirect_to category_product_url(product.category, product), notice: 'Review was successfully created.'
     else
-      render action: 'new'
+      redirect_to :back, notice: 'You must fill in both fields'
     end
   end
 

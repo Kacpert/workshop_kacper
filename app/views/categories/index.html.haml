@@ -1,19 +1,19 @@
-=provide(:title, "Categories")
+=provide(:title, "categories")
+= link_to 'New Category', new_category_path if !(current_user.blank?) && current_user.admin?
+%br
+%br
+.col-md-10.col-md-offset-1.light-font
 
-%table.table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
 
   - categories.each do |category|
-    %tr
-      %td= category.name
-      %td= link_to 'Show', category
-      %td= link_to 'Edit', edit_category_path(category)
-      %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+    .left.margin  
+      .left
+        = button_to category.name, category_products_path(category), method: :get, class: "btn-black btn-sm"
+      .left
+        = link_to 'Edit', edit_category_path(category) if !(current_user.blank?) && current_user.admin?
+        %br
+        = link_to raw('Destroy'), category, method: :delete, data: { confirm: 'Are you sure?' } if !(current_user.blank?) && current_user.admin?
 
 %br
 
-= link_to 'New Category', new_category_path
+

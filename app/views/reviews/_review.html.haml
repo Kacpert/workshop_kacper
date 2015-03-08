@@ -1,4 +1,7 @@
-%p= review.content
+%p= '~ '  + review.content 
 %p
   %b= review.rating
   %em= review.author
+  %em= "~ " + review.created_at.strftime("%d %B. %Y")
+  %br
+  %br

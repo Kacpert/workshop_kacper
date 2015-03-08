@@ -1,0 +1,16 @@
+=provide(:title, current_user.firstname)
+.row
+  %br
+  .col-md-5.col-md-offset-0.light-font
+    = render 'data'
+  .col-md-7.light-font
+    =render @reviews.last(5).reverse if !(@reviews.nil?)
+%br
+%br
+-if current_user.products.any?
+  %h4 Your products: 
+
+%section.catalog-grid.light-font
+  .container
+    .row
+      =render current_user.products

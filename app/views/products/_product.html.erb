@@ -1,0 +1,33 @@
+
+			<div class="col-lg-3 col-md-4 col-sm-6">
+            	<div class="tile">
+              	<div class="badges">
+                <% if product.reviews.any? %>
+                  <span class="out"><%= product.average_rating.round(1) %> <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></span> <% end %>
+                </div>
+              	<div class="price-label"><%= product.price %></div>
+              	<%= link_to category_product_path(product.category_id, product) do %>
+                  <div class="phot"></div>
+                  <span class="tile-overlay"></span>
+                <% end %>
+                <div class="footer">
+                <div class="footer-position"><div class="left">
+                	<%= link_to product.title, category_product_path(product.category_id, product) %>&#x2002&#x2002</div>
+
+                <% if current_user == product.user %>            
+              <div class="left">
+              <%= link_to edit_category_product_path(product.category_id, product) do %>
+                <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+              <% end %>&#x2002&#x2002&#x2002&#x2002</div>
+              <div class="left"><%= link_to category_product_path(product.category_id, product), method: :delete, data: { confirm: 'Are you sure? You want to delete?' } do %>
+                <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+              <% end %></div>
+
+
+          <% end %>
+          </div>
+          </div>
+              
+              </div>
+            </div>
+
